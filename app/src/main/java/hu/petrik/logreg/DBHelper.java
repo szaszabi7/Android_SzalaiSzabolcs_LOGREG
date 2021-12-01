@@ -1,5 +1,6 @@
 package hu.petrik.logreg;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -37,5 +38,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
+    }
+
+    public boolean rogzites(String email, String nev, String jelszo, String teljesNev){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_EMAIL, email);
+        values.put(COL_FELHNEV, nev);
+        values.put(COL_JELSZO, jelszo);
+        values.put(COL_TELJESNEV, teljesNev);
+        return db.insert(TABLE_NAME, null, values) != -1;
     }
 }
