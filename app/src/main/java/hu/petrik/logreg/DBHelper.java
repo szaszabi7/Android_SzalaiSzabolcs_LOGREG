@@ -2,6 +2,7 @@ package hu.petrik.logreg;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -48,5 +49,12 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COL_JELSZO, jelszo);
         values.put(COL_TELJESNEV, teljesNev);
         return db.insert(TABLE_NAME, null, values) != -1;
+    }
+
+    public Cursor bejelentkezes(String nev, String jelszo) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " +
+                COL_FELHNEV + " = ? AND " + COL_JELSZO + " = ?", new String[]{nev, jelszo});
+
     }
 }

@@ -20,7 +20,7 @@ public class LoggedInActivity extends AppCompatActivity {
 
         init();
 
-        //TODO: bejelentkezett nevének kiírása
+        textview_kiir.setText(getIntent().getStringExtra("nev"));
 
         button_kijelentkezes.setOnClickListener(View -> {
             Intent mainre = new Intent(LoggedInActivity.this, MainActivity.class);

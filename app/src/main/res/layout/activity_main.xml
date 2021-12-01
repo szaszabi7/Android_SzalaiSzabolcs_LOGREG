@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -34,7 +34,8 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="Bejelentkezés"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:backgroundTint="@color/Blue"/>
 
         <Button
             android:id="@+id/button_regisztracio"
@@ -43,7 +44,8 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="Regisztráció"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:backgroundTint="@color/CaribbeanGrean"/>
 
     </LinearLayout>
 
